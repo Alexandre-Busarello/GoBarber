@@ -10,7 +10,6 @@ class CancellationMail {
 
   // Ação do JOB ao ser executado
   async handle({ data }) {
-    console.log(1);
     const { appointment } = data;
 
     await Mail.sendMail({
