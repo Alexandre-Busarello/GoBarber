@@ -55,8 +55,7 @@ class AvailableController {
         0
       );
 
-      // Pega a data atual para Timezone de BRASILIA
-      const compareDate = Utils.getCurrentTimeByTimezone('-3');
+      const compareDate = new Date();
       return {
         time,
         value: format(value, "yyyy-MM-dd'T'HH:mm:ssxxx"),
