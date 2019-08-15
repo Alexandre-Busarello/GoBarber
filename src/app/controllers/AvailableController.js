@@ -9,7 +9,6 @@ import {
 } from 'date-fns';
 import { Op } from 'sequelize';
 import Appointment from '../models/Appointment';
-import Utils from '../utils';
 
 class AvailableController {
   async index(req, res) {
