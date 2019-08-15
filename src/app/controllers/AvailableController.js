@@ -9,6 +9,7 @@ import {
 } from 'date-fns';
 import { Op } from 'sequelize';
 import Appointment from '../models/Appointment';
+import Utils from '../utils';
 
 class AvailableController {
   async index(req, res) {
@@ -54,11 +55,13 @@ class AvailableController {
         0
       );
 
+      // Pega a data atual para Timezone de BRASILIA
+      const compareDate = Utils.getCurrentTimeByTimezone('-3');
       return {
         time,
         value: format(value, "yyyy-MM-dd'T'HH:mm:ssxxx"),
         available:
-          isAfter(value, new Date()) &&
+          isAfter(value, compareDate) &&
           !appointments.find(a => format(a.date, 'HH:mm') === time),
       };
     });
